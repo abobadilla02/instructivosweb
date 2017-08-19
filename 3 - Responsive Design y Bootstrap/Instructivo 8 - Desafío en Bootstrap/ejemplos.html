@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/desafio.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<title>Desafío Bootstrap - Ejemplos</title>
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper">
+			<a href="index.html" class="brand-logo"><img id="logo" src="images/materialize.png" alt="logo desafío"></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="index.html">Inicio</a></li>
+				<li class="active"><a href="#">Ejemplos</a></li>
+				<li><a href="contacto.html">Contacto</a></li>
+			</ul>
+		</div>
+		<nav>
+		   <div class="nav-wrapper">
+			    <form>
+		        	<div class="input-field">
+		          		<input id="search" type="search" placeholder="Buscar en la página" required>
+			          	<label class="label-icon" for="search"><i class="material-icons">search</i></label>
+			          	<i class="material-icons">close</i>
+				    </div>
+			    </form>
+		    </div>
+		</nav>
+	</nav>
+	
+	<br>
+	<br>
+	<br>
+	<div class="container">
+	  	<div class="row">
+	    	<div class="col s12">
+		      	<ul class="tabs">
+			        <li class="tab col s4"><a class="active" href="#pestana1">Ejemplo Dropdown</a></li>
+			        <li class="tab col s4"><a href="#pestana2">Ejemplo Modal</a></li>
+			        <li class="tab col s4"><a href="#pestana3">Sección fichas</a></li>
+	      		</ul>
+	    	</div>
+	    	<br><br><br>
+		    <div id="pestana1" class="col s12 offset-s1">
+				<a href="#" class="dropdown-button btn" data-activates="dropdown-ejemplo">Despliegame</a>
+				<ul id="dropdown-ejemplo" class="dropdown-content">
+					<li><a href="#!">Alonso</a></li>
+					<li><a href="#!">Bobadilla</a></li>
+					<li><a href="#!">Montoya</a></li>
+				</ul>    	
+		    </div>
+		    <div id="pestana2" class="col s12 offset-s5">
+		    	<a class="waves-effect waves-light btn modal-trigger" href="#ejemplomodal">Ejemplo Modal</a>
+
+			  	<div id="ejemplomodal" class="modal">
+			    	<div class="modal-content">
+			      		<h4>Desarrollo de aplicaciones para internet</h4>
+			      		<h5>Crear una web</h2>
+
+			      		<p>
+							Para poner en práctica los conceptos teóricos vistos sobre Bootstrap se propone como ejercicio la creación de un pequeño sitio Web estático que use los estilos y componentes vistos de Bootstrap.
+
+							La temática, contenidos y estilos del sitio son libres, pero deberá tener al menos las siguientes características:
+
+							El sitio estará formado por al menos 3 páginas enlazadas entre sí (con contenidos estáticos).
+						</p>
+						<ul>
+							<li>Tener una barra de navegación principal. Esta barra tendrá al menos: dos enlaces, una imagen como logotipo,un buscador (aunque no sea funcional).</li>
+							<br>
+							<li>Contener los siguientes elementos (un ejemplo de cada uno en alguna de las páginas del sitio web): botones, un desplegable, una sección con fichas o pestañas, un formulario, una tabla con bordes.</li>
+			    		</ul>		
+			    	</div>
+				    <div class="modal-footer">
+				      	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+				    </div>
+			  	</div>
+		    </div>
+		    <div id="pestana3" class="col s12">
+		    	<ul class="collection with-header">
+			        <li class="collection-header"><h4>Contenidos del curso</h4></li>
+			        <li class="collection-item">HTML + CSS</li>
+			        <li class="collection-item">Bootstrap</li>
+			        <li class="collection-item">Javascript</li>
+			        <li class="collection-item">Ajax</li>
+			        <li class="collection-item">PHP</li>
+			        <li class="collection-item">JQuery</li>
+			        <li class="collection-item">Angular</li>
+			        <li class="collection-item">Yeoman</li>
+	      		</ul>
+		    </div>
+	 	</div>
+ 	</div>
+
+	<footer class="page-footer">
+      	<div class="container">
+        	<div class="row">
+          		<div class="col l6 s12">
+		            <h5 class="white-text">Sobre mi</h5>
+		            <p class="grey-text text-lighten-4">Página realizada usando materialize por el alumno de la carrera Ingeniería Civil Informática Alonso Bobadilla, quien cursa actualmente el octavo semestre de carrera.</p>
+          		</div>
+          		<div class="col l4 offset-l2 s12">
+	            	<h5 class="white-text">Otros sitios</h5>
+	            	<ul>
+		            	<li><a class="grey-text text-lighten-3" href="http://abobadilla02.github.io">Página anterior</a></li>
+		            	<li><a class="grey-text text-lighten-3" href="https://github.com/abobadilla02/abobadilla02.github.io">Github tarea anterior</a></li>
+		              	<li><a class="grey-text text-lighten-3" href="https://github.com/abobadilla02/instructivosweb">Github instructivos</a></li>
+	            	</ul>
+	          	</div>
+        	</div>
+      	</div>
+      	<div class="footer-copyright">
+	        <div class="container">
+	        © 2017 Alonso Bobadilla
+	        </div>
+      	</div>
+    </footer> 	
+        
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/desafio.js"></script>
+</body>
+</html>
