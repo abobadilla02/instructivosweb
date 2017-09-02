@@ -1,0 +1,83 @@
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 8px;
+  width: auto;
+}
+#index {
+	height: 400px;
+	width: auto;
+	padding: 8px;
+}
+#info-index {
+	padding: 100px;
+}
+#signup {
+	margin-right: 10px;
+}
+.footer-apple {
+    background-color: #3c3d41;
+	padding: 60px 40px;
+	color: rgba(255,255,255,1.00);
+	margin-bottom: 20px;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 6px;
+}
+.footer-apple ul.lista { 
+	list-style: none; 
+	padding: 0px; 
+}
+.footer-apple ul.lista li { 
+	padding: 5px 0px;
+}
+.footer-apple ul.lista a { 
+	color: rgba(255,255,255,0.80); 
+}
+.footer-apple ul.lista a:hover { 
+	color: rgba(255,255,255,0.60); 
+	text-decoration: none; 
+}
+.carousel-inner img {
+  margin: auto;
+  opacity: 0.8;
+}
+.carousel-caption h1{
+	position: absolute;
+	font-size: 500%;
+    top: -200%;
+	width: 100%;
+}
+.carousel-caption h4{
+	position: absolute;
+    top: -250%;
+    font-size: 200%;
+	width: 100%;
+}
+#icono {
+	height: 40px;
+	width: auto;
+}
+.login-contenedor {	
+	margin-top: 80px;
+  	margin-bottom: 80px;
+}
+
+.form-signin {
+  	max-width: 380px;
+  	padding: 15px 35px 45px;
+  	margin: 0 auto;
+  	background-color: #fff;
+  	border: 1px solid rgba(0,0,0,0.1);  
+}
+#login {
+	text-align: center;
+}
+#login-boton {
+	background-color: #2B2828;
+}
+#contacto {
+	
+}
