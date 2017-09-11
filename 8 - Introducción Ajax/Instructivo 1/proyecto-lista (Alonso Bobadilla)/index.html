@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax + JQuery Ejemplo 1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script>
+		$(document).on("ready", function() {
+			$("#btn-enviar").click(function(e) {
+				e.preventDefault();
+				var pet = $("form").attr("action");
+				var met = $("form").attr("method");
+				$.ajax({
+					url: pet,
+					type: met,
+					data: $("form").serialize(),
+					beforeSend: function() {
+						$("#cargando").html('<img id="icono" src="cargando.gif">');
+					},
+					success: function(info) {
+						setTimeout(function() {
+							$("#icono").remove();
+							$("#resultado").text(info);
+						}, 1000);
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="script.php" method="post">
+		Introduce tu nombre:
+		<input type="text" name="user">
+		Introduce tu apellido:
+		<input type="text" name="lastname">
+		Introduce tu edad:
+		<input type="text" name="age">
+		<input type="button" id="btn-enviar" value="enviar">
+		<div id="cargando"></div>
+		<div id="resultado"></div>
+	</form>
+</body>
+</html>
