@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo 4</title>
+	<script	src="angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="miApp"	ng-controller="AppController">
+		<p>Iterando	los	objetos	ordenados	por	pais:</p>
+		<ul>
+			<li	ng-repeat="x in nombres | orderBy:'pais'">
+				{{	x.nombre	+	',	'	+	x.pais	}}
+			</li>
+		</ul>
+	</div>
+	<script>
+		angular.module('miApp',	[]).controller('AppController',	function($scope)	{
+			$scope.nombres	=	[
+				{	nombre	:	'Jani'	,	pais	:	'Noruega'	},
+				{	nombre	:	'Carl'	,	pais	:	'Suecia'	},
+				{	nombre	:	'Margareth'	,	pais	:	'Reino	Unido'	},
+				{	nombre	:	'Hege'	,	pais	:	'Noruega'	},
+				{	nombre	:	'Joe'	,	pais	:	'Dinamarca'	},
+				{	nombre	:	'Gustav'	,	pais	:	'Suecia'	},
+				{	nombre	:	'Birgit'	,	pais	:	'Dinamarca'	},
+				{	nombre	:	'Mary'	,	pais	:	'Reino	Unido'	},
+				{	nombre	:	'Kai'	,	pais	:	'Noruega'	}
+				];
+		});
+	</script>
+	
+</body>
+</html>

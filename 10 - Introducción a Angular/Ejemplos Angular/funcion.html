@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo de función</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="AppController">
+	<script>
+		var	app	= angular.module('app',	[]);
+		app.controller('AppController',	function($scope){
+			$scope.texto = 'Aún	no presionas el submit';
+			$scope.miFuncion = function() {
+				$scope.texto = 'Presionaste el submit!';
+			};
+		});
+	</script>
+	<form ng-submit="miFuncion()">
+		<input type="text">
+		<input type="submit">
+	</form>
+	<p>{{texto}}</p>
+	<ul	ng-init = "nombres=['John Snow', 'Ash Ketchum', 'Gary Oak']">
+		<li	ng-repeat="name	in nombres">
+			{{name}}
+		</li>
+	</ul>
+    <div ng-include="'vista.html'">
+    	
+    </div>
+    <div ng-show="false">Hola Mundo</div>
+
+</body>
+</html>

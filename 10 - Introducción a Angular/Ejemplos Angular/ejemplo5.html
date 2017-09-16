@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo 5</title>
+	<script	src="angular.min.js"></script>
+</head>
+<body>
+	<ul	ng-app="miApp"	ng-controller="appCtrl">
+		<li	ng-repeat="x in	nombres">
+			{{x	| miFiltro}}
+		</li>
+	</ul>
+	<script>
+		var	app	=	angular.module('miApp',	[]);
+		app.filter('miFiltro',	function()	{
+			return	function(x)	{
+				var	i,	c,	txt	=	"";
+				for	(i	=	0;	i	<	x.length;	i++)	{
+					c	=	x[i];
+					if	(i	%	2	==	0)	{
+									c	=	c.toUpperCase();
+					}
+					txt	+=	c;
+				}
+				return	txt;
+			};
+		});
+		app.controller('appCtrl',	function($scope)	{
+			$scope.nombres	=	[
+							'Jani',
+							'Carl',
+							'Margareth',
+							'Hege',
+							'Joe',
+							'Gustav',
+							'Birgit',
+							'Mary',
+							'Kai'
+							];
+		});
+	</script>
+	
+</body>
+</html>
