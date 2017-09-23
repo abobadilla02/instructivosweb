@@ -16,4 +16,11 @@
 			templateUrl: 'app/views/capital.html'
 		}
 	});
+
+	direc.directive('deudas', function() {
+		return {
+			restric: 'E',
+			templateUrl: 'app/views/deudas.html'
+		}
+	});
 })();

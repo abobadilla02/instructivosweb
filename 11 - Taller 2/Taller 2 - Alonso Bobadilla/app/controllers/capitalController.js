@@ -9,8 +9,13 @@
 	function CapitalController($scope, $localStorage) {
 
 		$scope.$storage = $localStorage;
-		$scope.$storage.capital = 15000000;
-
+		
+		if (!$scope.$storage.capital && !$scope.$storage.capital != 0) {
+			$scope.$storage.capital = 15000000;
+		}
+		
+		console.log($scope.$storage.deudas);
+		
 		// Inicializar cuotas
 		var cuotas = [{
 			id: 1,
@@ -30,8 +35,10 @@
 			interes: 25
 		}]
 
+		$scope.mostrarDeudas = false;
 		$scope.modeloCuotas = cuotas;
 
+		// Función para registrar un nuevo prestamo
 		$scope.registrarPrestamo = function() {
 
 			// Si no existe ningúna deuda se inicia el arreglo
@@ -40,8 +47,8 @@
 			}
 
 			// Se busca la cuota en el arreglo (para saber los intereses y el número de cuotas)
-			var tipoCuota = $scope.modeloCuotas[$scope.nuevoPrestamo.cuota_id];
-
+			var tipoCuota = $scope.modeloCuotas[$scope.nuevoPrestamo.cuota_id - 1];
+			
 			// Obtención de el campo prestamo
 			var prestamo = $scope.nuevoPrestamo.prestamo;
 
@@ -83,6 +90,10 @@
 			// Esconder y limpiar los campos
 			$scope.mostrarPrestamo();
 			$scope.nuevoPrestamo = {};
+		}
+
+		$scope.resumenDeudas = function() {
+			$scope.mostrarDeudas = !$scope.mostrarDeudas;
 		}
 	}
 })();

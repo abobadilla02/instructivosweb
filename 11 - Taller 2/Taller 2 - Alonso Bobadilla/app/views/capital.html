@@ -10,10 +10,6 @@
 							<option ng-repeat="cuota in modeloCuotas" value={{cuota.id}}>{{cuota.n_cuotas}}</option>
 						</select>
 						<br>
-						<input disabled type="number" step="1" class="form-control input-lg text-center" ng-model="nuevoPrestamo.interes" placeholder="Interés">
-						<br>
-						<input disabled type="number" step="1" class="form-control input-lg text-center" ng-model="nuevoPrestamo.interes" placeholder="Total">
-						<br> 
 					</div>
 
 					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarPrestamo()" ng-disabled="!nuevoPrestamo.prestamo || !nuevoPrestamo.cuota_id">Agregar</button>

@@ -1,6 +1,7 @@
-	<div class="container">
+	<div class="container" ng-controller="CapitalController">
 		<div class="jumbotron text-center">
 			<h1>Capital actual: $ <span class="label label-success">{{ $storage.capital }}</span><h1>
+			<button class="btn btn-info btn-lg text-left" ng-click="resumenDeudas()">Resumen de deudas</button>
 		</div>
 		
 		<div class="row">
@@ -28,7 +29,7 @@
 					<div class="form-group">
 						<input type="text" class="form-control input-lg text-center" placeholder="Nombre Completo" ng-model="nuevoCliente.nombre_completo" required>
 						<br>
-						<input type="text" class="form-control input-lg text-center" placeholder="Email" ng-model="nuevoCliente.email" required>
+						<input type="email" class="form-control input-lg text-center" placeholder="Email" ng-model="nuevoCliente.email" required>
 						<br>
 						<input type="text" class="form-control input-lg text-center" placeholder="Telefono" ng-model="nuevoCliente.telefono" required>
 					</div>
@@ -39,6 +40,6 @@
 				</form>
 			</div>
 		</div>
-
+		<deudas ng-show="mostrarDeudas"></deudas>
 	</div>
-	<capital ng-show="formPrestamo" ng-controller="CapitalController"></capital>
+	<capital ng-show="formPrestamo"></capital>

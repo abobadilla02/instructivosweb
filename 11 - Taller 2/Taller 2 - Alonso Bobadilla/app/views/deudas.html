@@ -1,0 +1,22 @@
+		<br>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-1">
+				<legend>Resumen deudas</legend>
+				<table class="table table-striped">
+					<tr class="info">
+						<td>Nombre completo</td>
+						<td>Prestamo</td>
+						<td>Interés</td>
+						<td>Total</td>
+						<td>Cuotas</td>
+					</tr>
+					<tr ng-repeat="deuda in $storage.deudas track by $index">
+						<td>{{ deuda.cliente.nombre_completo }}</td>
+						<td>{{ deuda.prestamo }}</td>
+						<td>{{  }}</td>
+						<td>{{ deuda.total }}</td>
+						<td>{{ deuda.cuotas.length }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
