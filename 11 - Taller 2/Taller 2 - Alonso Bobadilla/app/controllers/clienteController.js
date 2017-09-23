@@ -14,20 +14,21 @@
 		// Ningún usuario seleccionado por defecto
 		$scope.selected = false;
 
-		// Formulario de prestamo oculto por defecto
+		// Formulario de prestamo y resumen deudas ocultos por defecto
 		$scope.formPrestamo = false;
+		$scope.mostrarDeudas = false;
 
 		// Inicialización de variables clientes
 		$scope.$storage = $localStorage;
 
 		// Registrar un nuevo cliente
 		$scope.registrarCliente = function() {
-			
+
 			// Si no existe ningún cliente, inicializar la variable clientes
 			if (!$scope.$storage.clientes) {
 				$scope.$storage.clientes = [];
 			}
-
+			console.log($scope.nuevoCliente.email);
 			// Modelo nuevo cliente
 			var cliente = {
 				nombre_completo: $scope.nuevoCliente.nombre_completo,
@@ -50,14 +51,14 @@
 
 		// Eliminar cliente
 		$scope.borrarCliente = function() {
-			
+
 			// Eliminar la coincidencia
-			for (var i=0; i<$scope.$storage.clientes.length;i++) {
-			  if ($scope.$storage.clientes[i].nombre_completo === $scope.nuevoCliente.nombre_completo) {
-			    $scope.$storage.clientes.splice(i,1);
-			  }
+			for (var i = 0; i < $scope.$storage.clientes.length; i++) {
+				if ($scope.$storage.clientes[i].nombre_completo === $scope.nuevoCliente.nombre_completo) {
+					$scope.$storage.clientes.splice(i, 1);
+				}
 			}
-			
+
 			// Limpiar los campos
 			$scope.nuevoCliente = {};
 			$scope.selected = false;
@@ -70,7 +71,24 @@
 		};
 
 		$scope.mostrarPrestamo = function() {
-			$scope.formPrestamo = !$scope.formPrestamo;
+			if ($scope.mostrarDeudas) {
+				$scope.resumenDeudas();
+				$scope.formPrestamo = !$scope.formPrestamo;
+			} else {
+				$scope.formPrestamo = !$scope.formPrestamo;
+			}
+		}
+
+		$scope.resumenDeudas = function() {
+			if ($scope.formPrestamo) {
+				$scope.mostrarPrestamo();
+				$scope.mostrarDeudas = !$scope.mostrarDeudas;
+			} else {
+				$scope.mostrarDeudas = !$scope.mostrarDeudas;
+			}
+
+			$scope.nuevoCliente = {};
+			$scope.selected = false;
 		}
 	};
 })();

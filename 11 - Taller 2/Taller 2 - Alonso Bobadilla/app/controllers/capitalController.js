@@ -9,13 +9,13 @@
 	function CapitalController($scope, $localStorage) {
 
 		$scope.$storage = $localStorage;
-		
+
 		if (!$scope.$storage.capital && !$scope.$storage.capital != 0) {
 			$scope.$storage.capital = 15000000;
 		}
-		
+
 		console.log($scope.$storage.deudas);
-		
+
 		// Inicializar cuotas
 		var cuotas = [{
 			id: 1,
@@ -35,7 +35,6 @@
 			interes: 25
 		}]
 
-		$scope.mostrarDeudas = false;
 		$scope.modeloCuotas = cuotas;
 
 		// Función para registrar un nuevo prestamo
@@ -48,13 +47,13 @@
 
 			// Se busca la cuota en el arreglo (para saber los intereses y el número de cuotas)
 			var tipoCuota = $scope.modeloCuotas[$scope.nuevoPrestamo.cuota_id - 1];
-			
+
 			// Obtención de el campo prestamo
 			var prestamo = $scope.nuevoPrestamo.prestamo;
 
 			// Calculo del prestamo más los intereses 
 			var total = prestamo + (prestamo * (tipoCuota.interes / 100));
-			
+
 			// Calculo de la cuota, sacada en base al total con intereses
 			var valorCuota = total / tipoCuota.n_cuotas;
 
@@ -73,7 +72,7 @@
 				cliente: {
 					nombre_completo: $scope.nuevoCliente.nombre_completo,
 					email: $scope.nuevoCliente.email,
-					telefono: $scope.nuevoCliente.telefono	
+					telefono: $scope.nuevoCliente.telefono
 				},
 				cuota_id: $scope.nuevoPrestamo.cuota_id,
 				cuotas: cuotas,
@@ -85,15 +84,11 @@
 			$scope.$storage.deudas.push(deuda);
 
 			// Actualizar el capital
-			$scope.$storage.capital = $scope.$storage.capital - prestamo; 
-			
+			$scope.$storage.capital = $scope.$storage.capital - prestamo;
+
 			// Esconder y limpiar los campos
 			$scope.mostrarPrestamo();
 			$scope.nuevoPrestamo = {};
-		}
-
-		$scope.resumenDeudas = function() {
-			$scope.mostrarDeudas = !$scope.mostrarDeudas;
 		}
 	}
 })();

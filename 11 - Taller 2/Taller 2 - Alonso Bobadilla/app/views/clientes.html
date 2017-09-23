@@ -1,11 +1,12 @@
-	<div class="container" ng-controller="CapitalController">
+	<div class="container">
 		<div class="jumbotron text-center">
-			<h1>Capital actual: $ <span class="label label-success">{{ $storage.capital }}</span><h1>
+			<h1>Capital actual: $ <span class="label label-success">{{ $storage.capital | number: 0}}</span><h1>
 			<button class="btn btn-info btn-lg text-left" ng-click="resumenDeudas()">Resumen de deudas</button>
 		</div>
 		
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-1">
+				<legend>Lista de clientes</legend>
 				<table class="table table-striped">
 					<tr class="info">
 						<td>Nombre completo</td>
@@ -25,6 +26,7 @@
 				</table>
 			</div>
 			<div class="col-sm-4 col-sm-offset-1 text-center">
+				<legend class="text-left">Nuevo cliente</legend>
 				<form name="form">
 					<div class="form-group">
 						<input type="text" class="form-control input-lg text-center" placeholder="Nombre Completo" ng-model="nuevoCliente.nombre_completo" required>
@@ -40,6 +42,7 @@
 				</form>
 			</div>
 		</div>
-		<deudas ng-show="mostrarDeudas"></deudas>
+		<capital ng-show="formPrestamo" ng-controller="CapitalController"></capital>
+		<deudas ng-show="mostrarDeudas" ng-controller="CapitalController"></deudas>
 	</div>
-	<capital ng-show="formPrestamo"></capital>
+	
