@@ -14,16 +14,11 @@
 		// Ningún usuario seleccionado por defecto
 		$scope.selected = false;
 
+		// Formulario de prestamo oculto por defecto
+		$scope.formPrestamo = false;
+
 		// Inicialización de variables clientes
 		$scope.$storage = $localStorage;
-		
-		/*$scope.$storage.clientes = [{
-			nombre_completo: "Alonso Bobobadilla",
-			email: "a.bobadilla02@ufromail.cl",
-			telefono: "67039813"
-		}]; */
-		
-		$scope.$storage.capital = 1000000;
 
 		// Registrar un nuevo cliente
 		$scope.registrarCliente = function() {
@@ -54,13 +49,15 @@
 		};
 
 		// Eliminar cliente
-		$scope.borrarCliente = function(cliente) {
-			// Obtener el cliente a ser eliminado
-			var eliminado = $scope.$storage.clientes[$scope.nuevoCliente.nombre_completo];
+		$scope.borrarCliente = function() {
 			
-			// Eliminar el cliente mediante el método splice
-			$scope.$storage.clientes.splice(eliminado, 1);
-
+			// Eliminar la coincidencia
+			for (var i=0; i<$scope.$storage.clientes.length;i++) {
+			  if ($scope.$storage.clientes[i].nombre_completo === $scope.nuevoCliente.nombre_completo) {
+			    $scope.$storage.clientes.splice(i,1);
+			  }
+			}
+			
 			// Limpiar los campos
 			$scope.nuevoCliente = {};
 			$scope.selected = false;
@@ -71,5 +68,9 @@
 			$scope.nuevoCliente = cliente;
 			$scope.selected = true;
 		};
+
+		$scope.mostrarPrestamo = function() {
+			$scope.formPrestamo = !$scope.formPrestamo;
+		}
 	};
 })();

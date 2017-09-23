@@ -1,0 +1,44 @@
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>Capital actual: $ <span class="label label-success">{{ $storage.capital }}</span><h1>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-1">
+				<table class="table table-striped">
+					<tr class="info">
+						<td>Nombre completo</td>
+						<td>Email</td>
+						<td>Telefono</td>
+						<td>Prestamo</td>
+						<td>Deuda</td>
+					</tr>
+					<tr ng-repeat="cliente in $storage.clientes track by $index" ng-click="selectCliente(cliente)">
+						<td>{{ cliente.nombre_completo }}</td>
+						<td>{{ cliente.email }}</td>
+						<td>{{ cliente.telefono }}</td>
+						<td><button ng-click="mostrarPrestamo()" class="btn btn-sm btn-warning">Nuevo</button></td>
+						<td><button class="btn btn-sm btn-primary">Pagar</button></td>
+
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-4 col-sm-offset-1 text-center">
+				<form name="form">
+					<div class="form-group">
+						<input type="text" class="form-control input-lg text-center" placeholder="Nombre Completo" ng-model="nuevoCliente.nombre_completo" required>
+						<br>
+						<input type="text" class="form-control input-lg text-center" placeholder="Email" ng-model="nuevoCliente.email" required>
+						<br>
+						<input type="text" class="form-control input-lg text-center" placeholder="Telefono" ng-model="nuevoCliente.telefono" required>
+					</div>
+
+					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarCliente()" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || selected">Registrar</button>
+					<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarCliente()" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || !selected">Modificar</button>
+					<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarCliente()" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || !selected">Borrar</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<capital ng-show="formPrestamo" ng-controller="CapitalController"></capital>

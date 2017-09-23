@@ -9,53 +9,20 @@
 	
 	<!-- Cargar la biblioteca de angular -->
 	<script src="lib/js/angular.min.js"></script>
-	<!-- Cargar controladores-->
+	
+	<!-- Cargar dependencias -->
 	<script src="lib/js/ngStorage.min.js"></script>
 	<script src="app/app.js"></script>
+	<script src="app/directives.js"></script>
+	
+	<!-- Cargar controladores-->
 	<script src="app/controllers/clienteController.js"></script>
 	<script src="app/controllers/capitalController.js"></script>
 
-	
 </head>
-<body ng-app="app" ng-controller="ClienteController">
-	<div class="container">
-		<div class="jumbotron text-center">
-			<h1>Capital actual: $ <span class="label label-success">{{ $storage.capital }}</span><h1>
-		</div>
-		
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-1">
-				<table class="table table-striped">
-					<tr class="info">
-						<td>Nombre completo</td>
-						<td>Email</td>
-						<td>Telefono</td>
-					</tr>
-					<tr ng-repeat="cliente in $storage.clientes track by $index" ng-click="selectCliente(cliente)">
-						<td>{{ cliente.nombre_completo }}</td>
-						<td>{{ cliente.email }}</td>
-						<td>{{ cliente.telefono }}</td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-sm-4 col-sm-offset-1 text-center">
-				<form name="form">
-					<div class="form-group">
-						<input type="text" class="form-control input-lg text-center" placeholder="Nombre Completo" ng-model="nuevoCliente.nombre_completo" required>
-						<br>
-						<input type="text" class="form-control input-lg text-center" placeholder="Email" ng-model="nuevoCliente.email" required>
-						<br>
-						<input type="text" class="form-control input-lg text-center" placeholder="Telefono" ng-model="nuevoCliente.telefono" required>
-					</div>
-
-					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarCliente()" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || selected">Registrar</button>
-					<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarCliente(nuevoCliente)" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || !selected">Modificar</button>
-					<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarCliente(nuevoCliente)" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || !selected">Borrar</button>
-				</form>
-			</div>
-		</div>
-	</div>
-
+<body ng-app="app">
+	<clientes ng-controller="ClienteController"></clientes>
+	
 </body>
 </html>
 

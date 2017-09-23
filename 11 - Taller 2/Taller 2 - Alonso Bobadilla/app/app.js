@@ -1,5 +1,5 @@
 'use strict';
 (function() {
 	angular.
-	module('app', ['ngStorage']);
+	module('app', ['ngStorage', 'directivas']);
 })();
