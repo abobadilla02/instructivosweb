@@ -2,7 +2,7 @@
 class ConnectionDB extends mysqli {
     public function __construct(){
         //damos valores iniciales a la conexión (constructor clase mysqli)
-        parent::__construct('localhost','root','dark199224','actividadAjax');
+        parent::__construct('localhost','root','','actividadAjax');
         //Indicamos la codificación de caracteres con la que vamos a trabajar
         $this->query("SET NAMES 'utf8';");
         /* Verificamos el estado de la conexión.
