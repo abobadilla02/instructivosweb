@@ -23,4 +23,11 @@
 			templateUrl: 'app/views/deudas.html'
 		}
 	});
+
+	direc.directive('pagos', function() {
+		return {
+			restric: 'E',
+			templateUrl: 'app/views/pagos.html'
+		}
+	})
 })();

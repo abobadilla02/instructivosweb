@@ -1,17 +1,20 @@
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-2 text-center">
+				<!-- Formulario para agregar un nuevo prestamo, este solo pide el monto y la cantidad de cuotas ya que todo lo otro se valida en el controller -->
 				<legend class="text-left">Nuevo Prestamo</legend>
 				<form>
 					<div class="form-group">
-						<input type="number" step="1" class="form-control input-lg text-center" ng-model="nuevoPrestamo.prestamo" min="1" max={{$storage.capital}} required>
+						<!-- Validación de que el prestamo no puede ser más que el capital -->
+						<input type="number" step="1" class="form-control input-lg text-center" ng-model="nuevoPrestamo.prestamo" min="1" max={{$storage.capital}} placeholder="Ingrese monto" required>
 						<br>
+						<!-- Creación del select a partir del modelo de las cuotas -->
 						<select class="form-control input-lg text-center" ng-model="nuevoPrestamo.cuota_id" required>
 							<option value="" disabled selected>N° de Cuotas</option>
 							<option ng-repeat="cuota in modeloCuotas" value={{cuota.id}}>{{cuota.n_cuotas}}</option>
 						</select>
 						<br>
 					</div>
-
+					<!-- Validación de que los campos estén completos y existen botones para enviar y para cerrar el formulario -->
 					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarPrestamo()" ng-disabled="!nuevoPrestamo.prestamo || !nuevoPrestamo.cuota_id">Agregar</button>
 					<button class="btn btn-warning btn-lg" ng-click="mostrarPrestamo()">Cerrar</button>
 				</form>
