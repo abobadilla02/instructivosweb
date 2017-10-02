@@ -1,0 +1,30 @@
+img {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+}
+body {
+	background-image: url(../images/fondo.jpg);
+}
+.tarjeta {
+	background-color: #d2d1d1;	
+	border: 5px solid #4d75fe;
+	margin-bottom: 2px;
+	width: 1200px;
+}
+.estado {
+	color: #970023;
+}
+.texto {
+	font: Verdana;
+	font-size: 32px;
+}
+.margen {
+	margin-top: 50px;
+}
+.formulario {
+	font: Verdana;
+}

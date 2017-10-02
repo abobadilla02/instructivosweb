@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Taller 2 - Alonso Bobadilla</title>
+	<!-- Cargar bootstrap -->
+	<link rel="stylesheet" href="lib/css/bootstrap.min.css">
+	
+	<!-- Cargar la biblioteca de angular -->
+	<script src="lib/js/angular.min.js"></script>
+	
+	<!-- Cargar dependencias -->
+	<script src="lib/js/ngStorage.min.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/directives.js"></script>
+	
+	<!-- Cargar controladores-->
+	<script src="app/controllers/clienteController.js"></script>
+	<script src="app/controllers/capitalController.js"></script>
+	<script src="app/controllers/deudasController.js"></script>
+	<script src="app/controllers/pagosController.js"></script>
+
+
+
+</head>
+<body ng-app="app">
+	<clientes ng-controller="ClienteController"></clientes>
+</body>
+</html>
+

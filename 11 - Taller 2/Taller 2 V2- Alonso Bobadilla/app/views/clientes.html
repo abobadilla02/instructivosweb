@@ -1,0 +1,51 @@
+	<div class="container">
+		<div class="jumbotron text-center">
+			<!-- Jumbotron para mostrar el capital actualizado en tiempo real y botón para acceder a el resumen de las deudas -->
+			<h1>Capital actual: $ <span class="label label-success">{{ $storage.capital | number: 0 }}</span><h1>
+			<button class="btn btn-info btn-lg text-left" ng-click="resumenDeudas()">Resumen de deudas</button>
+		</div>
+		<div class="row">
+			<!-- Se muestran los clientes en una tabla, además se habilitan los botones para agregar prestamo y para pagar las deudas -->
+			<div class="col-sm-6 col-sm-offset-1">
+				<legend>Lista de clientes</legend>
+				<table class="table table-striped">
+					<tr class="info">
+						<td>Nombre completo</td>
+						<td>Email</td>
+						<td>Telefono</td>
+						<td>Prestamo</td>
+						<td>Deuda</td>
+					</tr>
+					<tr ng-repeat="cliente in $storage.clientes track by $index" ng-click="selectCliente(cliente)">
+						<td>{{ cliente.nombre_completo }}</td>
+						<td>{{ cliente.email }}</td>
+						<td>{{ cliente.telefono }}</td>
+						<td><button ng-click="mostrarPrestamo()" class="btn btn-sm btn-warning">Nuevo</button></td>
+						<td><button ng-click="cartolaPagos()" class="btn btn-sm btn-primary">Pagar</button></td>
+					</tr>
+				</table>
+			</div>
+			<!-- Formulario para el ingreso de un nuevo cliente, también está habilitado para la modificación y la eliminación de un cliente al seleccionarlo desde la tabla.
+			Está validado para email, por lo que el botón registrar solo se activa, cuando todos los campos están correctamente añadidos -->
+			<div class="col-sm-4 col-sm-offset-1 text-center">
+				<legend class="text-left">Nuevo cliente</legend>
+				<form name="form">
+					<div class="form-group">
+						<input type="text" class="form-control input-lg text-center" placeholder="Nombre Completo" ng-model="nuevoCliente.nombre_completo" required>
+						<br>
+						<input type="email" class="form-control input-lg text-center" placeholder="Email" ng-model="nuevoCliente.email" required>
+						<br>
+						<input type="text" class="form-control input-lg text-center" placeholder="Telefono" ng-model="nuevoCliente.telefono" required>
+					</div>
+					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarCliente()" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || selected">Registrar</button>
+					<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarCliente()" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || !selected">Modificar</button>
+					<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarCliente()" ng-disabled="!nuevoCliente.nombre_completo || !nuevoCliente.email || !nuevoCliente.telefono || !selected">Borrar</button>
+				</form>
+			</div>
+		</div>
+		<!-- Agregadas las otras directivas, que se despliegan al ser accedidas desde los botones -->
+		<capital ng-show="formPrestamo" ng-controller="CapitalController"></capital>
+		<deudas ng-show="mostrarDeudas" ng-controller="DeudasController"></deudas>
+		<pagos ng-show="mostrarPagos" ng-controller="PagosController"></pagos>
+	</div>
+	

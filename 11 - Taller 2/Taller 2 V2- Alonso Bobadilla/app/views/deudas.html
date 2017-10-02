@@ -1,0 +1,29 @@
+		<br>
+		<div class="row">
+			<!-- Tabla con las deudas en general del sistema -->
+			<div class="col-sm-11 col-sm-offset-1">
+				<legend>Resumen deudas</legend>
+				<table class="table table-striped">
+					<tr class="info">
+						<td>Nombre completo</td>
+						<td>Prestamo</td>
+						<td>Interés</td>
+						<td>Total a pagar</td>
+						<td>Cuotas totales</td>
+						<td>Valor cuota</td>
+						<td>Estado</td>
+					</tr>
+					<!-- Se muestran los datos más importantes, como el nombre del deudor, el dinero del prestamo, los intereses, el total a pagar, el número de cuotas que se pidio, además se valida el estado de la deuda como paga o no paga -->
+					<tr ng-repeat="deuda in $storage.deudas track by $index">
+						<td>{{ deuda.cliente.nombre_completo }}</td>
+						<td>${{ deuda.prestamo | number: 0}}</td>
+						<td>${{ deuda.total - deuda.prestamo | number: 0}}</td>
+						<td>${{ deuda.total | number: 0}}</td>							
+						<td>{{ deuda.cuotas.length }}</td>
+						<td ng-init="estado = deuda.cuotas[deuda.cuotas.length - 1].pagado">${{ deuda.cuotas[0].valor | number: 0 }}</td>
+						<td ng-if="estado">Pagado</td>
+						<td ng-if="!estado">En pago</td>
+					</tr>
+				</table>
+			</div>
+		</div>

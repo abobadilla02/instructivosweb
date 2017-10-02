@@ -1,0 +1,23 @@
+		<br>
+		<div class="row">
+			<div class="col-sm-11 col-sm-offset-1">
+				<legend>Cuotas de la deuda</legend>
+				<!-- Se muestran todas las deudas de el cliente seleccionado y se separan en tablas distintas, en cada una se muestra el número de la cuota, el valor de cada una de ellas, si está paga o sin pagar y por último se habilita un botón para pagar en caso de que no esté pagado -->
+				<table class="table table-striped" ng-repeat="pago in $storage.deudor track by $index">
+					<tr class="info">
+						<td>Número de cuota</td>
+						<td>Valor</td>
+						<td>Estado</td>
+						<td>Acción</td>
+					</tr>
+					<tr ng-init="cont = $index" ng-repeat="cuota in pago.cuotas track by $index">
+						<td>{{ cont + 1 }}</td>
+						<td ng-init="pagado = cuota.pagado">${{ cuota.valor | number: 0 }}</td>
+						<td ng-if="pagado">Pagado</td>
+						<td ng-if="!pagado">Pendiente</td>
+						<td ng-if="!pagado"><button ng-click="pagarCuota(cuota.valor, pago)" class="btn btn-sm btn-primary btn-info">Pagar</button></td>
+						<td ng-if="pagado"><button disabled class="btn btn-sm btn-info">Pagado</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
